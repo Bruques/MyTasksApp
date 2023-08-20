@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State var taskTitle: String = ""
-    @State var tasks: [String] = []
+    @State var tasks: [String] = ["Teste 1"]
+    @State var isCompleted: [Bool] = [false]
             
     var body: some View {
         NavigationView {
@@ -19,6 +20,7 @@ struct ContentView: View {
                         .padding(.horizontal)
                     Button {
                         self.tasks.append(self.taskTitle)
+                        self.isCompleted.append(false)
                     } label: {
                         Text("ADD")
                             .foregroundColor(.white)
@@ -36,9 +38,21 @@ struct ContentView: View {
                 )
                 
                 List {
-                    ForEach(tasks, id: \.self) { task in
-                        Text(task)
+                    ForEach(tasks.indices, id: \.self) { index in
+                        HStack {
+                            Image(systemName: self.isCompleted[index] ? "checkmark.circle" : "circle")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .onTapGesture {
+                                    self.isCompleted[index].toggle()
+                                }
+                            Spacer()
+                                .frame(width: 16)
+                            Text(self.tasks[index])
+                        }
+                        
                     }
+                    .onDelete(perform: self.deleteItem)
                 }
                 
                 
@@ -48,6 +62,10 @@ struct ContentView: View {
             .padding()
             .navigationTitle("My tasks")
         }
+    }
+    func deleteItem(at offsets: IndexSet) {
+        self.tasks.remove(atOffsets: offsets)
+        self.isCompleted.remove(atOffsets: offsets)
     }
 }
 
