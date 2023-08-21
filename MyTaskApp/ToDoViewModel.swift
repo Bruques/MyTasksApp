@@ -41,6 +41,13 @@ class ToDoViewModel: ObservableObject {
         let task = savedTasks[index]
         CoreDataManager.shared.viewContext.delete(task)
         self.saveData()
+        self.fetchTasks()
+    }
+    
+    func isCompletedToggle(index: Int) {
+        self.savedTasks[index].isCompleted.toggle()
+        self.saveData()
+        self.fetchTasks()
     }
     
     func saveData() {

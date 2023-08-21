@@ -46,8 +46,7 @@ struct ToDoView: View {
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .onTapGesture {
-                                    //Todo -> Find the way to fix this
-//                                    self.viewModel.isCompleted[index].toggle()
+                                    self.viewModel.isCompletedToggle(index: index)
                                 }
                             Spacer()
                                 .frame(width: 16)
