@@ -18,10 +18,8 @@ struct ToDoView: View {
                     TextField("Task title", text: $viewModel.taskTitle)
                         .padding(.horizontal)
                     Button {
-                        if !viewModel.taskTitle.isEmpty {
-                            self.viewModel.tasks.append(self.viewModel.taskTitle)
-                            self.viewModel.isCompleted.append(false)
-                            self.viewModel.taskTitle = ""
+                        if !self.viewModel.taskTitle.isEmpty {
+                            self.viewModel.addTask()
                         }
                     } label: {
                         Text("ADD")
@@ -42,20 +40,21 @@ struct ToDoView: View {
                 .padding(.top)
                 
                 List {
-                    ForEach(self.viewModel.tasks.indices, id: \.self) { index in
+                    ForEach(self.viewModel.savedTasks.indices, id: \.self) { index in
                         HStack {
-                            Image(systemName: self.viewModel.isCompleted[index] ? "checkmark.circle" : "circle")
+                            Image(systemName: self.viewModel.savedTasks[index].isCompleted ? "checkmark.circle" : "circle")
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .onTapGesture {
-                                    self.viewModel.isCompleted[index].toggle()
+                                    //Todo -> Find the way to fix this
+//                                    self.viewModel.isCompleted[index].toggle()
                                 }
                             Spacer()
                                 .frame(width: 16)
-                            Text(self.viewModel.tasks[index])
+                            Text(self.viewModel.savedTasks[index].title ?? "No value")
                         }
                     }
-                    .onDelete(perform: self.deleteItem)
+//                    .onDelete(perform: )
                 }
                 
                 
@@ -63,10 +62,6 @@ struct ToDoView: View {
             }
             .navigationTitle("My tasks")
         }
-    }
-    func deleteItem(at offsets: IndexSet) {
-        self.viewModel.tasks.remove(atOffsets: offsets)
-        self.viewModel.isCompleted.remove(atOffsets: offsets)
     }
 }
 

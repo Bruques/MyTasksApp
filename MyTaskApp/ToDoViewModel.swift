@@ -15,7 +15,7 @@ class ToDoViewModel: ObservableObject {
     @Published var savedTasks: [Task] = []
     
     init() {
-        fetchTasks()
+        self.fetchTasks()
     }
     
     func fetchTasks() {
@@ -24,6 +24,23 @@ class ToDoViewModel: ObservableObject {
             self.savedTasks = try CoreDataManager.shared.viewContext.fetch(request)
         } catch let error {
             print("Error fetching. \(error)")
+        }
+    }
+    
+    func addTask() {
+        let newtask = Task(context: CoreDataManager.shared.viewContext)
+        newtask.title = taskTitle
+        newtask.isCompleted = false
+        self.taskTitle = ""
+        self.saveData()
+        self.fetchTasks()
+    }
+    
+    func saveData() {
+        do {
+            try CoreDataManager.shared.viewContext.save()
+        } catch let error {
+            print("Error saving. \(error)")
         }
     }
 }
