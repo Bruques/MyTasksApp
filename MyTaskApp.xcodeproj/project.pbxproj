@@ -8,21 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		0E1FB60D2A9295B70006365D /* MyTaskAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1FB60C2A9295B70006365D /* MyTaskAppApp.swift */; };
-		0E1FB60F2A9295B70006365D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1FB60E2A9295B70006365D /* ContentView.swift */; };
+		0E1FB60F2A9295B70006365D /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1FB60E2A9295B70006365D /* ToDoView.swift */; };
 		0E1FB6112A9295B80006365D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1FB6102A9295B80006365D /* Assets.xcassets */; };
 		0E1FB6142A9295B80006365D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1FB6132A9295B80006365D /* Preview Assets.xcassets */; };
-		0E1FB6162A9295B80006365D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1FB6152A9295B80006365D /* Persistence.swift */; };
 		0E1FB6192A9295B80006365D /* MyTaskApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E1FB6172A9295B80006365D /* MyTaskApp.xcdatamodeld */; };
+		0EE464FE2A92F93000E492A5 /* ToDoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE464FD2A92F93000E492A5 /* ToDoViewModel.swift */; };
+		0EE465002A92FA2300E492A5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE464FF2A92FA2300E492A5 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E1FB6092A9295B70006365D /* MyTaskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTaskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1FB60C2A9295B70006365D /* MyTaskAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskAppApp.swift; sourceTree = "<group>"; };
-		0E1FB60E2A9295B70006365D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0E1FB60E2A9295B70006365D /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		0E1FB6102A9295B80006365D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E1FB6132A9295B80006365D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0E1FB6152A9295B80006365D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0E1FB6182A9295B80006365D /* MyTaskApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyTaskApp.xcdatamodel; sourceTree = "<group>"; };
+		0EE464FD2A92F93000E492A5 /* ToDoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewModel.swift; sourceTree = "<group>"; };
+		0EE464FF2A92FA2300E492A5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +58,12 @@
 			isa = PBXGroup;
 			children = (
 				0E1FB60C2A9295B70006365D /* MyTaskAppApp.swift */,
-				0E1FB60E2A9295B70006365D /* ContentView.swift */,
+				0E1FB60E2A9295B70006365D /* ToDoView.swift */,
 				0E1FB6102A9295B80006365D /* Assets.xcassets */,
-				0E1FB6152A9295B80006365D /* Persistence.swift */,
 				0E1FB6172A9295B80006365D /* MyTaskApp.xcdatamodeld */,
 				0E1FB6122A9295B80006365D /* Preview Content */,
+				0EE464FD2A92F93000E492A5 /* ToDoViewModel.swift */,
+				0EE464FF2A92FA2300E492A5 /* CoreDataManager.swift */,
 			);
 			path = MyTaskApp;
 			sourceTree = "<group>";
@@ -143,9 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EE464FE2A92F93000E492A5 /* ToDoViewModel.swift in Sources */,
 				0E1FB6192A9295B80006365D /* MyTaskApp.xcdatamodeld in Sources */,
-				0E1FB6162A9295B80006365D /* Persistence.swift in Sources */,
-				0E1FB60F2A9295B70006365D /* ContentView.swift in Sources */,
+				0E1FB60F2A9295B70006365D /* ToDoView.swift in Sources */,
+				0EE465002A92FA2300E492A5 /* CoreDataManager.swift in Sources */,
 				0E1FB60D2A9295B70006365D /* MyTaskAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ToDoView: View {
     @State var taskTitle: String = ""
     @State var tasks: [String] = ["Teste 1"]
     @State var isCompleted: [Bool] = [false]
@@ -21,6 +21,7 @@ struct ContentView: View {
                     Button {
                         self.tasks.append(self.taskTitle)
                         self.isCompleted.append(false)
+                        self.taskTitle = ""
                     } label: {
                         Text("ADD")
                             .foregroundColor(.white)
@@ -36,6 +37,8 @@ struct ContentView: View {
                 .background(
                     Color.secondary.cornerRadius(50)
                 )
+                .padding(.horizontal)
+                .padding(.top)
                 
                 List {
                     ForEach(tasks.indices, id: \.self) { index in
@@ -50,16 +53,14 @@ struct ContentView: View {
                                 .frame(width: 16)
                             Text(self.tasks[index])
                         }
-                        
                     }
                     .onDelete(perform: self.deleteItem)
                 }
                 
                 
-                
                 Spacer()
             }
-            .padding()
+//            .padding()
             .navigationTitle("My tasks")
         }
     }
@@ -72,6 +73,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ToDoView()
     }
 }

@@ -9,12 +9,13 @@ import SwiftUI
 
 @main
 struct MyTaskAppApp: App {
-    let persistenceController = PersistenceController.shared
+    
+    let persistentContainer = CoreDataManager.shared.persistentContainer
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ToDoView()
+                .environment(\.managedObjectContext, persistentContainer.viewContext)
         }
     }
 }
