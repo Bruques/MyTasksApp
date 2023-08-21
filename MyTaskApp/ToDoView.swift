@@ -54,7 +54,7 @@ struct ToDoView: View {
                             Text(self.viewModel.savedTasks[index].title ?? "No value")
                         }
                     }
-//                    .onDelete(perform: )
+                    .onDelete(perform: self.viewModel.deleteTask)
                 }
                 
                 

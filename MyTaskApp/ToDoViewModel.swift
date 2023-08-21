@@ -36,6 +36,13 @@ class ToDoViewModel: ObservableObject {
         self.fetchTasks()
     }
     
+    func deleteTask(indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }
+        let task = savedTasks[index]
+        CoreDataManager.shared.viewContext.delete(task)
+        self.saveData()
+    }
+    
     func saveData() {
         do {
             try CoreDataManager.shared.viewContext.save()
