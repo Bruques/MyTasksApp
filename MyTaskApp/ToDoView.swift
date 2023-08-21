@@ -18,9 +18,11 @@ struct ToDoView: View {
                     TextField("Task title", text: $viewModel.taskTitle)
                         .padding(.horizontal)
                     Button {
-                        self.viewModel.tasks.append(self.viewModel.taskTitle)
-                        self.viewModel.isCompleted.append(false)
-                        self.viewModel.taskTitle = ""
+                        if !viewModel.taskTitle.isEmpty {
+                            self.viewModel.tasks.append(self.viewModel.taskTitle)
+                            self.viewModel.isCompleted.append(false)
+                            self.viewModel.taskTitle = ""
+                        }
                     } label: {
                         Text("ADD")
                             .foregroundColor(.white)
