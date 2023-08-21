@@ -11,10 +11,10 @@ import SwiftUI
 struct MyTaskAppApp: App {
     
     let persistentContainer = CoreDataManager.shared.persistentContainer
-
+    let toDoViewModel = ToDoViewModel()
     var body: some Scene {
         WindowGroup {
-            ToDoView()
+            ToDoView(viewModel: toDoViewModel)
                 .environment(\.managedObjectContext, persistentContainer.viewContext)
         }
     }

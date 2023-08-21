@@ -8,5 +8,7 @@
 import Foundation
 
 class ToDoViewModel: ObservableObject {
-    
+    @Published var taskTitle: String = ""
+    @Published var tasks: [String] = ["Teste 1"]
+    @Published var isCompleted: [Bool] = [false]
 }
