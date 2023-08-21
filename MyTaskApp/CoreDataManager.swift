@@ -12,6 +12,10 @@ class CoreDataManager {
     let persistentContainer: NSPersistentContainer
     static let shared = CoreDataManager()
     
+    var viewContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+    
     private init() {
         self.persistentContainer = NSPersistentContainer(name: "MyTaskApp")
         self.persistentContainer.loadPersistentStores { description, error in
